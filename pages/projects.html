@@ -4,28 +4,26 @@ title: Projects
 ---
 {% for post in site.categories.projects %}
   <a href="{{ site.github.url }}{{ post.url }}">
-    .column {
-  float: left;
 }
 
-.left {
-  width: 25%;
-    Titles
-}
+#    <div class="featured-posts" {% if post.image %}style="background-image:url({{ site.github.url }}/assets/img/{{ post.image }})"{% endif %}>
+#      <h2><span>{{ post.title }}</span></h2>
+#    </div>
+#  </a>
+#{% endfor %}
 
-.right {
-  width: 75%;
-    Descriptions
-}
+<body>
+  <div class="wrapper">
+    {% include sidebar.html %}
 
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
-}
-
-    <div class="featured-posts" {% if post.image %}style="background-image:url({{ site.github.url }}/assets/img/{{ post.image }})"{% endif %}>
-      <h2><span>{{ post.title }}</span></h2>
+    <div class="main-wrapper">
+        {{ content }}
     </div>
-  </a>
-{% endfor %}
+  </div>
+
+  {% include footer.html %}
+
+{% include scripts.html %}
+</body>
+
+</html>
